@@ -12,14 +12,14 @@ It is a decentralized oracle network that consists of Ares oracle Module, it mak
 
 ### Overview
 
-**Ares** consists of consumers, providers, and validators of the data. The consumer requests the data via extrinsic with rpc method, and the data providers are randomly selected through VRF, which aggregates data from multiple sources.
+**Ares** consists of consumers, sources aggregator, and validators of the data. The consumer requests the data via extrinsic with rpc method, and aggregators are randomly selected through VRF, which aggregates data from multiple sources.
 
-It needs to pledge certain assets, Every time the data provider submits a correct data, its reputation value will grow. The reputation value and pledge will be weighted, from which we choose the members of council. council can only approve and reject data submitted by data providers. 
+Aggregator needs to pledge certain assets, Every time the aggregator submits a correct data, its reputation value will grow. The reputation value and pledge will be weighted, from which we choose the members of council. council can only approve and reject data submitted by data aggregator. 
 The default is to approve, and if the data found incorrect, the author will be punished and its reputation will be degraded.
 
 ### Project Details
 
-**Subscript** is designed as standard AssemblyScript with builtin contract api. First of all, `Subscript` libray  will provide  basic `contract` pallet runtime api access.
+**Ares** is designed as standard AssemblyScript with builtin contract api. First of all, `Subscript` libray  will provide  basic `contract` pallet runtime api access.
 
 * contract runtime envionment
 * contract `memory` management
