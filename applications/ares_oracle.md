@@ -8,14 +8,16 @@
 
 Ares is a predictive machine project based on Substrate, with the objective of providing safe and credible under chain real data use a decentralized approach for smart contracts, parallel chains or other projects in the ecosystem of the Polkadot.
 
-It is a decentralized oracle network that consists of Ares oracle Module, it makes full use of the offchain worker, sources aggregator, random mine block and reputation council.
+It is a decentralized oracle network that consists of Ares oracle Module, it makes full use of the off-chain worker, sources aggregator committee random mine block and reputation council.
 
 ### Overview
 
-**Ares** consists of consumers, sources aggregator, and validators of the data. The consumer requests the data via extrinsic with rpc method, and aggregators are randomly selected through VRF, which aggregates data from multiple sources.
+**Ares** consists of consumers, sources aggregator, and validators of the data. The consumer requests the data via extrinsic with rpc method or off-chain worker if we become a parallel chain, If we become an application on a parallel chain of contracts, it provides a pallet for The caller, The result of the request passed to the caller through a callback, Aggregators randomly selected through VRF, which aggregates data from multiple sources.
 
 Aggregator needs to pledge certain assets, Every time the aggregator submits a correct data, its reputation value will grow. The reputation value and pledge will be weighted, from which we choose the members of council. council can only approve and reject data submitted by data aggregator. 
 The default is to approve, and if the data found incorrect, the author will be punished and its reputation will be degraded.
+
+The functions of aggregator committees are similar with Babe, and reputation council are similar with Grandpa which finality the correctness of the data. Most nodes can become member of aggregators committees. It only takes few tokens to staking.
 
 ### Project Details
 
