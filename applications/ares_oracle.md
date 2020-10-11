@@ -15,17 +15,18 @@ It is a decentralized oracle network that consists of Ares oracle Module, it mak
 **Ares** consists of consumers, sources aggregator, and validators of the data. The consumer requests the data via extrinsic with rpc method or off-chain worker if we become a parallel chain, If we become an application on a parallel chain of contracts, it provides a pallet for The caller, The result of the request passed to the caller through a callback, Aggregators randomly selected through VRF, which aggregates data from multiple sources.
 
 Aggregator needs to pledge certain assets, Every time the aggregator submits a correct data, its reputation value will grow. The reputation value and pledge will be weighted, from which we choose the members of council. council can only approve and reject data submitted by data aggregator. 
-The default is to approve, and if the data found incorrect, the author will be punished and its reputation will be degraded.
+The default is to approve, and if the data found incorrect, the author will be slashed and its reputation will be degraded.
 
 The functions of aggregator committees are similar with Babe, and reputation council are similar with Grandpa which finality the correctness of the data. Most nodes can become member of aggregators committees. It only takes few tokens to staking.
 
 ### Project Details
 
-**Ares** is designed as standard AssemblyScript with builtin contract api. First of all, `Subscript` libray  will provide  basic `contract` pallet runtime api access.
+**Ares** will provide  basic `ares` pallet runtime which allows substrate built parachain/blockchain to interract with.
 
-* contract runtime envionment
-* contract `memory` management
-* state storage access, set and get value by key.
+* define `ares Trait` which contain event and callback
+* outside request may be token prices get the price of digital currency 
+* 
+* use **Polkadot js API** interaction with substrate node
 * `event` data generation and storage
 
 The `Subscript` library also add support for contract interaction utilties, including:
@@ -35,11 +36,7 @@ The `Subscript` library also add support for contract interaction utilties, incl
 * user struct storage layout
 * `account` and  `balance` interface 
 * contract call abstraction
-* builtin utility fuctions
-
-The package will provide contract template and intergation tool with substrate node. 
-
-There is no plan for `EVM Pallet` support.
+* 
 
 ### Ecosystem Fit
 Some of the function of `Subscript` are similar to LimeChain's work of AssemblyScript Runtime, but they are  made for different scenario. LimeChain AssemblyScript Runtime focus on building substrate runtime with wasm compiled from AssemblyScript. It involves building all the substrate runtime environment entry with AssemblyScript and other basic library. `Subscript` aims to implement all the substrate smart contract low level interface with AssemblyScript. `Subscript` also add support for basic contract lib and project template for easy development.  We may benefit  previous work from LimeChain such as `SCALE`codec, runtime entry implemention.
@@ -50,9 +47,6 @@ Some of the function of `Subscript` are similar to LimeChain's work of AssemblyS
 * Symon Ho: Fullstack developer Leading consensus R&D and engineering in multichain system. Prior to that, developer of openstack project,  engaged in performance tools and  monitoring  system for cloud platform.
 * Ice Min: 10+ years experience in c/c++ development, real time database products and digital currency transaction platform products expert. Developer of BitCoin and Ethereum wallet.
 
-### Team Website
-* https://github.com/slickup
-
 ### Team's experience
 
 We implemented the fruitchain consensus integrated with ethereum, and used pbft to provide finalization in blockchain system.  Fruitchain mainnet launched in 2019 and privide 500+ TPS for transaction validation.
@@ -60,8 +54,7 @@ We implemented the fruitchain consensus integrated with ethereum, and used pbft 
 We alse engaged in smart contract tools interaged with vyper for contract audit and testing. 
 
 ### Team Code Repos
-* https://github.com/slickup/subscript
-* https://github.com/ascontract/subscript
+* https://github.com/aresprotocols/ares
 
 ## Development Roadmap :nut_and_bolt:
 
