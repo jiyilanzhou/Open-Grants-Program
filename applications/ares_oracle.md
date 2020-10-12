@@ -39,19 +39,22 @@ The `Subscript` library also add support for contract interaction utilties, incl
 * 
 
 ### Ecosystem Fit
-Some of the function of `Subscript` are similar to LimeChain's work of AssemblyScript Runtime, but they are  made for different scenario. LimeChain AssemblyScript Runtime focus on building substrate runtime with wasm compiled from AssemblyScript. It involves building all the substrate runtime environment entry with AssemblyScript and other basic library. `Subscript` aims to implement all the substrate smart contract low level interface with AssemblyScript. `Subscript` also add support for basic contract lib and project template for easy development.  We may benefit  previous work from LimeChain such as `SCALE`codec, runtime entry implemention.
+
+Although Off-chain worker can do part of the oracle job, However, it can't guarantee the authenticity and reliability of the data, We can provide randomness and correctness of data sources through multi-party data aggregation and provides anti-attack and auditing of data sources
 
 ## Team :busts_in_silhouette:
 
 ### Team members
-* Symon Ho: Fullstack developer Leading consensus R&D and engineering in multichain system. Prior to that, developer of openstack project,  engaged in performance tools and  monitoring  system for cloud platform.
-* Ice Min: 10+ years experience in c/c++ development, real time database products and digital currency transaction platform products expert. Developer of BitCoin and Ethereum wallet.
+
+* Keric: 7+ years development experience, proficient in public chain and cross chain development, proficient in using go and rust, p2p network expert.
+* Daniel: 11 years of work experience in IoT software development and management, familiar with contract and DAPP development.
+* Scott: More than 7 years of software development experience, proficient in /Java/Golang/node, etc. engaged in blockchain research and development, familiar with eos/eth.
+* Andy Ray: 10 years of Internet entrepreneurship experience, 5 years of blockchain industry experience, proficient in the secondary market, economic model design.
+* Fred: Over 13+ years of Embedded Network Technology Experience in multiple technological systems including Hardware networking, software networking, and server-side applications.
 
 ### Team's experience
 
-We implemented the fruitchain consensus integrated with ethereum, and used pbft to provide finalization in blockchain system.  Fruitchain mainnet launched in 2019 and privide 500+ TPS for transaction validation.
-
-We alse engaged in smart contract tools interaged with vyper for contract audit and testing. 
+We implemented the POW + DPOS consensus integrated with ethereum, used tendermint to provide finalize in blockchain system with golang. Recently, we implemented a rust pos blockchain, it  uses vrf select validators and libp2p network. We have enough experience to solve the centralization problem of Oracle.                                                                                                                                                                                                                                           
 
 ### Team Code Repos
 * https://github.com/aresprotocols/ares
@@ -100,4 +103,4 @@ We may add more intergated tool and IDE packge for contract developer.
 
 ## Additional Information
 
-We expect any developer who is interested in AssemblyScript smart contract join us and build efficient framework.
+We expect any developer who is interested in `ares protocol` join us and build efficient framework.
