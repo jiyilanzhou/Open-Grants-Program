@@ -21,22 +21,21 @@ The functions of aggregator committees are similar with Babe, and reputation cou
 
 ### Project Details
 
-**Ares** will provide  basic `ares` pallet runtime which allows substrate built parachain/blockchain to interract with.
+**Ares** is designed as decentralized oracle network. First of all, `Ares` will provide  basic `ares` pallet runtime which allows substrate built parachain/blockchain to interact with.
 
-* define `ares Trait` which contain event and callback
-* outside request may be token prices get the price of digital currency 
-* 
-* use **Polkadot js API** interaction with substrate node
-* `event` data generation and storage
+* define `ares Trait` which contain Event, Callback.
+* define storage operator, request, result and error types
+* request external data, contains parameters and methods for how to request them.
+* describes how to integrate into parachain.
+* aggregator scans the extrinsic in the block, requests the data, and submits it
+* reputation council submit proof of fraud if it validates fails.
 
-The `Subscript` library also add support for contract interaction utilties, including:
+If basic functions have been completed, `Ares` will provide decentralized pallet, including:
 
-* contract metadata generator
-* basic data structure: dynimic array, map, list,
-* user struct storage layout
-* `account` and  `balance` interface 
-* contract call abstraction
-* 
+* Multiple data source weight calculation
+* Random aggregators using VRF 
+* Proof of fraud based on BFT voting
+* reputation council slash
 
 ### Ecosystem Fit
 
@@ -61,14 +60,14 @@ We implemented the POW + DPOS consensus integrated with ethereum, used tendermin
 
 ## Development Roadmap :nut_and_bolt:
 
-We only provide **milestone1**  here for contract runtime api implementation. Full milestones are list in the [general grant repo](https://github.com/slickup/General-Grants-Program/blob/master/grants/speculative/subscript_lang.md)
+We only provide **milestone1**  here for centralized oracle implementation. Full milestones are list in the [Project Details](#Project Details)
 
 ### Overview
 * **Total Estimated Duration:** 2 month
 * **Full-time equivalent (FTE):**  2
 * **Total Costs:** 2 btc
 
-### Milestone 1  — Implement smart contract low level api
+### Milestone 1  — Implement ares low pallet
 * **Estimated Duration:** 2 month
 * **FTE:**  2
 * **Costs:** 2 btc
