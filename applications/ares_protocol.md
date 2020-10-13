@@ -23,7 +23,7 @@ The functions of aggregator committees are similar with Babe, and reputation cou
 
 **Ares** is designed as decentralized oracle network. First of all, `Ares` will provide  basic `ares` pallet runtime which allows substrate built parachain/blockchain to interact with.
 
-* define `ares Trait` which contain Event, Callback.
+* define `Trait` which contain Event, Callback.
 * define storage operator, request, result and error types
 * request external data, contains parameters and methods for how to request them.
 * describes how to integrate into parachain.
