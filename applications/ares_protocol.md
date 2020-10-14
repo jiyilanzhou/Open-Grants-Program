@@ -28,15 +28,19 @@ The functions of aggregator committees are similar with Babe, and reputation cou
 * define storage operator, request, result and error types
 * request external data, contains parameters and methods for how to request them.
 * describes how to integrate into parachain.
-* aggregator scans the extrinsic in the block, requests the data, and submits it
-* reputation council submit proof of fraud if it validates fails.
+* Aggregator scans the extrinsic in the block, requests the data, and submits it
+* Aggregator packing parachain extrinsic and receipts on chain
+* Validator validator data and submit proof of fraud
+* Reputation council reward and slash according to proof of fraud.
 
 If basic functions have been completed, `Ares` will provide decentralized pallet, including:
 
 * Multiple data source weight calculation
 * Random aggregators using VRF 
-* Proof of fraud based on BFT voting
-* reputation council slash
+* Proof of fraud verify based on BFT voting
+* Reputation council slash
+* Aggregator staking and Validator incentive
+* Authority management of aggregator submitted data
 
 ### Ecosystem Fit
 
