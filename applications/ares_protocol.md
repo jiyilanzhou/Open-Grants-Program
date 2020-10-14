@@ -6,24 +6,25 @@
 
 ## Project Overview :page_facing_up:
 
-Ares is a predictive machine project based on Substrate, with the objective of providing safe and credible under chain real data use a decentralized approach for smart contracts, parallel chains or other projects in the ecosystem of the Polkadot.
+Ares is a predictive machine project based on Substrate, with the objective of providing safe and credible under chain real data use a decentralized approach for smart contracts, parachain or other projects in the ecosystem of the Polkadot.
 
-It is a decentralized oracle network that consists of Ares oracle Module, it makes full use of the off-chain worker, sources aggregator committee random mine block and reputation council.
+It is a decentralized oracle network that consists of Ares oracle pallet for parachain and validator, aggregator, reputation council pallet for our chain.
 
 ### Overview
 
-**Ares** consists of consumers, sources aggregator, and validators of the data. The consumer requests the data via extrinsic with rpc method or off-chain worker if we become a parallel chain, If we become an application on a parallel chain of contracts, it provides a pallet for The caller, The result of the request passed to the caller through a callback, Aggregators randomly selected through VRF, which aggregates data from multiple sources.
+**Ares** consists of parachain plug-in, validator, aggregator, reputation council, proof of fraud. If parachain use our services, it needs to integrate our oracle pallet, The result of the request passed to the caller through a callback. We scan in our chain of the parachain events call about the pallet, Aggregators randomly selected through VRF, which aggregates data from multiple sources.
+and the submitted data to the parachain via extrinsic, and packing parachain extrinsic and receipts onto our chain. 
 
-Aggregator needs to pledge certain assets, Every time the aggregator submits a correct data, its reputation value will grow. The reputation value and pledge will be weighted, from which we choose the members of council. council can only approve and reject data submitted by data aggregator. 
-The default is to approve, and if the data found incorrect, the author will be slashed and its reputation will be degraded.
+Aggregator needs to pledge certain assets, Every time the aggregator submits a correct data, its reputation value will grow. The reputation value and pledge will be weighted, from which we choose the members of council. council can only approve and reject data submitted by validator. 
+The default is to approve, validator nodes can verify, if validator found the data is incorrect, submit proof of fraud to council. if council check up, will reward validator and slash aggregator, its reputation will be degraded.
 
-The functions of aggregator committees are similar with Babe, and reputation council are similar with Grandpa which finality the correctness of the data. Most nodes can become member of aggregators committees. It only takes few tokens to staking.
+The functions of aggregator committees are similar with Babe, and reputation council are similar with Grandpa which finality the correctness of the data. Most nodes can become member of aggregators committees. It only takes few tokens to staking. The validator which submit proof of fraud need pay a small fee, it protected against DOS attacks.  
 
 ### Project Details
 
 **Ares** is designed as decentralized oracle network. First of all, `Ares` will provide  basic `ares` pallet runtime which allows substrate built parachain/blockchain to interact with.
 
-* define `Trait` which contain Event, Callback.
+* define `ares Trait` which contain Event, Callback.
 * define storage operator, request, result and error types
 * request external data, contains parameters and methods for how to request them.
 * describes how to integrate into parachain.
@@ -72,14 +73,13 @@ We only provide **milestone1**  here for centralized oracle implementation. Full
 * **FTE:**  2
 * **Costs:** 2 btc
 
-In this milestone, all the basic substrate contract runtime api will be implemented in AssemblyScript. This stage will deliver a AssemblyScript package which provide encapsulation of current substrate contract api. With the AS api, contracts can be compiled to wasm and deployed on substrate contract node. We may benefit from the reference implemention of parity Ink and provide similar api.
-
-The AS package will cover the following substrate contract api:
+In this milestone, We will implement our oracle proof-of-concept, A oracle pallet for parallel chain calls, including requested data, generated events, and callbacks to data, An example of parachain integration will be given.
+Then three pallets are provided, contain validator, aggregator, council pallet, Implement three pallet in a centralized manner.
 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
 | 0a. | License | Apache 2.0 |
-| 0b. | Testing | This milestone will have unit-test for all the following runtime api impemented. We will mock most of the contract runtime api to simulate host functions. Integration test will be delivered in next milestone. |
+| 0b. | Testing | This milestone will have unit-test for all the following pallet impemented. We will mock most of the contract runtime api to simulate host functions. Integration test will be delivered in next milestone. |
 | 0c. | Documentation | We will provide both inline documentation of all the sdk api and  basic code example that show how developers use the api. |
 | 1. | contract runtime environment | contract builder and execution to initailize the contract code |
 | 2. | core types | add core component: AccountId, Balance, Hash, Block |
