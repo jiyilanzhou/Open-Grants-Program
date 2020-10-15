@@ -83,18 +83,15 @@ Then three pallets are provided, contain validator, aggregator, council pallet, 
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
 | 0a. | License | Apache 2.0 |
-| 0b. | Testing | This milestone will have unit-test for all the following pallet impemented. We will mock most of the contract runtime api to simulate host functions. Integration test will be delivered in next milestone. |
+| 0b. | Testing | This milestone will have unit-test for all the following pallet impemented. We will mock most of the pallet to simulate host functions. Integration test will be delivered in next milestone. |
 | 0c. | Documentation | We will provide parachain integrate oracle pallet documentation and  basic code example that show how developers use the pallet, our chain deploy  |
-| 1. | contract runtime environment | contract builder and execution to initailize the contract code |
-| 2. | core types | add core component: AccountId, Balance, Hash, Block |
-| 2. | storage access | contract low level storage read and write with key |
-| 3. | object packing utilty | Provide user-defined data structure packing and unpacking method to storage access. |
-| 4. | memory manipulation | Implement memory make and getter, setter |
-| 5. | contract event generation | Generate event from contract call |
-| 6. | contract call method | Provide method for make contract call. |
-| 7. | hash utility | Make digest of encoded input to generate hash image |
-| 8. | `SCALE` codec | Builtin codec functions to serialize and deserialize input. We may directly use LimeChain `as-scale-codec` implementation. |
-| 9. | example for demonstration | Provide  ERC20 contract example to test on substrate node |
+| 1. | oracle pallet | request oracle event and result callback |
+| 2. | scanner | scanner parachain oracle request via off-chain worker, parse the specific request data and send to aggregator|
+| 3. | processor | data warehouse returns the correct request data use off-chain worker, will be used by aggregator,council,validator to validate the data | 
+| 4. | aggregator | Commit the data to a parallel chain and put extrinsic receipt results to this chain |
+| 5. | validator | validator aggregator block and submit fraud proof  |
+| 6. | council | judge which has the correct data |
+| 7. | example for demonstration | Provide  parachain oracle pallet integrate example and our chain deploy example|
 
 ## Future Plans
 
