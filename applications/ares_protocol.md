@@ -13,7 +13,7 @@ It is a decentralized oracle network that consists of Ares oracle pallet for par
 ### Overview
 
 **Ares** consists of parachain plug-in, validator, aggregator, reputation council, proof of fraud. If parachain use our services, it needs to integrate our oracle pallet, The result of the request passed to the caller through a callback. We scan in our chain of the parachain events call about the pallet, Aggregators randomly selected through VRF, which aggregates data from multiple sources.
-and the submitted data to the parachain via extrinsic, and packing parachain extrinsic and receipts onto our chain. 
+and submitted data to the parachain via extrinsic, packing parachain extrinsic and receipts via off-chain worker onto our chain. 
 
 Aggregator needs to pledge certain assets, Every time the aggregator submits a correct data, its reputation value will grow. The reputation value and pledge will be weighted, from which we choose the members of council. council can only approve and reject data submitted by validator. 
 The default is to approve, validator nodes can verify, if validator found the data is incorrect, submit proof of fraud to council. if council check up, will reward validator and slash aggregator, its reputation will be degraded.
@@ -30,8 +30,9 @@ The functions of aggregator committees are similar with Babe, and reputation cou
 * describes how to integrate into parachain.
 * Aggregator scans the extrinsic in the block, requests the data, and submits it
 * Aggregator packing parachain extrinsic and receipts on chain
-* Validator validator data and submit proof of fraud
-* Reputation council reward and slash according to proof of fraud.
+* Validator validate data and submit proof of fraud
+* Reputation Council reward and slash according to proof of fraud.
+* Aggregator, Validator, Council use off-chain worker Getting external data
 
 If basic functions have been completed, `Ares` will provide decentralized pallet, including:
 
@@ -59,7 +60,6 @@ Although Off-chain worker can do part of the oracle job, However, it can't guara
 ### Team's experience
 
 We implemented the POW + DPOS consensus integrated with ethereum, used tendermint to provide finalize in blockchain system with golang. Recently, we implemented a rust pos blockchain, it  uses vrf select validators and libp2p network. We have enough experience to solve the centralization problem of Oracle.                                                                                                                                                                                                                                           
-
 ### Team Code Repos
 * https://github.com/aresprotocols/ares
 
@@ -84,7 +84,7 @@ Then three pallets are provided, contain validator, aggregator, council pallet, 
 | ------------- | ------------- | ------------- |
 | 0a. | License | Apache 2.0 |
 | 0b. | Testing | This milestone will have unit-test for all the following pallet impemented. We will mock most of the contract runtime api to simulate host functions. Integration test will be delivered in next milestone. |
-| 0c. | Documentation | We will provide both inline documentation of all the sdk api and  basic code example that show how developers use the api. |
+| 0c. | Documentation | We will provide parachain integrate oracle pallet documentation and  basic code example that show how developers use the pallet, our chain deploy  |
 | 1. | contract runtime environment | contract builder and execution to initailize the contract code |
 | 2. | core types | add core component: AccountId, Balance, Hash, Block |
 | 2. | storage access | contract low level storage read and write with key |
