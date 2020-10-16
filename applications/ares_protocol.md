@@ -12,13 +12,12 @@ It is a decentralized oracle network that consists of oracle pallet for parachai
 
 ### Overview
 
-**Ares** consists of parachain plug-in, validator, aggregator, reputation council, proof of fraud. If parachain use our services, it needs to integrate our oracle pallet, The result of the request passed to the caller through a callback. We scan in our chain of the parachain events call about the pallet, Aggregators randomly selected through VRF, which aggregates data from multiple sources.
-and submitted data to the parachain via extrinsic, packing parachain extrinsic and receipts via off-chain worker onto our chain. 
+**Ares** consists of parachain plug-in, validator, aggregator, reputation council, proof of fraud. If parachain use our services, it needs to integrate our oracle pallet, The result of the request passed to the caller through a callback. We scan the parachain events caller about the pallet in our chain, use rpc or websocket request via off-chain worker, Aggregators randomly selected through VRF, which aggregates data from multiple sources. and submitted data to the parachain via extrinsic, packing parachain extrinsic and receipts via off-chain worker onto our chain. 
 
 Aggregator needs to pledge certain assets, Every time the aggregator submits a correct data, its reputation value will grow. The reputation value and pledge will be weighted, from which we choose the members of council. council can only approve and reject data submitted by validator. 
-The default is to approve, validator nodes can verify, if validator found the data is incorrect, submit proof of fraud to council. if council check up, will reward validator and slash aggregator, its reputation will be degraded.
+The default is to approve, validator nodes can verify, if validator found the data is incorrect, submit proof of fraud to council. if council check up, ther it will reward validator and slash aggregator, its reputation will be degraded.
 
-The functions of aggregator committees are similar with Babe, and reputation council are similar with Grandpa which finality the correctness of the data. Most nodes can become member of aggregators committees. It only takes few tokens to staking. The validator which submit proof of fraud need pay a small fee, it protected against DOS attacks.  
+The functions of aggregator committees are similar to Babe, and reputation council are likely Grandpa which finality the correctness of the data. Most nodes can become member of aggregators committees. It only takes few tokens to staking. The validator who submit proof of fraud need pay a small fee, it protects against DOS attacks.  
 
 ### Project Details
 
@@ -28,11 +27,11 @@ The functions of aggregator committees are similar with Babe, and reputation cou
 * define storage operator, request, result and error types
 * request external data, contains parameters and methods for how to request them.
 * describes how to integrate into parachain.
-* Aggregator scans the extrinsic in the block, requests the data, and submits it
-* Aggregator packing parachain extrinsic and receipts on chain
-* Validator validate data and submit proof of fraud
+* Aggregator scans the extrinsic in the parachain, use off-chain worker requests the data, and submits result extrinsic to parachain.
+* Aggregator packing parachain extrinsic and receipts on ares chain.
+* Validator validate data and submit proof of fraud.
 * Reputation Council reward and slash according to proof of fraud.
-* Aggregator, Validator, Council use off-chain worker Getting external data
+* Aggregator, Validator, Council use off-chain worker getting external data
 
 ### Ecosystem Fit
 
@@ -69,7 +68,7 @@ We only provide **milestone1**  here for centralized oracle implementation. Full
 * **FTE:**  2
 * **Costs:** 2 btc
 
-In this milestone, We will implement our oracle proof-of-concept, A oracle pallet for parallel chain calls, including requested data, generated events, and callbacks to data, An example of parachain integration will be given.
+In this milestone, We will implement ares oracle proof-of-concept, A oracle pallet for parallel chain calls, including requested data, generated events, and callbacks to data, An example of parachain integration will be given.
 Then three pallets are provided, contain validator, aggregator, council pallet, Implement three pallet in a centralized manner.
 
 | Number | Deliverable | Specification |
@@ -83,8 +82,8 @@ Then three pallets are provided, contain validator, aggregator, council pallet, 
 | 4. | aggregator | Commit the data to a parallel chain and put extrinsic receipt results to this chain |
 | 5. | validator | validator aggregator block and submit fraud proof  |
 | 6. | council | judge which has the correct data |
-| 6. | Proof of fraud | judge which has the correct data |
-| 7. | example for demonstration | Provide  parachain oracle pallet integrate example and our chain deploy example|
+| 7. | Proof of fraud | judge which has the correct data |
+| 8. | example for demonstration | Provide  parachain oracle pallet integrate example and our chain deploy example|
 
 ## Future Plans
 
