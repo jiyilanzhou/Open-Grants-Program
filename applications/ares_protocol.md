@@ -34,15 +34,6 @@ The functions of aggregator committees are similar with Babe, and reputation cou
 * Reputation Council reward and slash according to proof of fraud.
 * Aggregator, Validator, Council use off-chain worker Getting external data
 
-If basic functions have been completed, `Ares` will provide decentralized pallet, including:
-
-* Multiple data source weight calculation
-* Random aggregators using VRF 
-* Proof of fraud verify based on BFT voting
-* Reputation council slash
-* Aggregator staking and Validator incentive
-* Authority management of aggregator submitted data
-
 ### Ecosystem Fit
 
 Although the Off-chain worker can do part of the oracle job, However it can't guarantee the authenticity and reliability of the data, Ares can provide randomness and correctness of data sources through multi-party data aggregation and anti-attack and auditing of data sources
@@ -87,20 +78,24 @@ Then three pallets are provided, contain validator, aggregator, council pallet, 
 | 0b. | Testing | This milestone will have unit-test for all the following pallet impemented. We will mock most of the pallet to simulate host functions. Integration test will be delivered in next milestone. |
 | 0c. | Documentation | We will provide parachain integrate oracle pallet documentation and  basic code example that show how developers use the pallet, our chain deploy  |
 | 1. | oracle pallet | request oracle event and result callback |
-| 2. | scanner | scanner parachain oracle request via off-chain worker, parse the specific request data and send to aggregator|
+| 2. | scanner | scanner parachain oracle request via off-chain worker, parse the specific request data and send to aggregator, scanner parachain aggregator extrinsic, record extrinsic and receipt results |
 | 3. | processor | data warehouse returns the correct request data use off-chain worker, will be used by aggregator,council,validator to validate the data | 
 | 4. | aggregator | Commit the data to a parallel chain and put extrinsic receipt results to this chain |
 | 5. | validator | validator aggregator block and submit fraud proof  |
 | 6. | council | judge which has the correct data |
+| 6. | Proof of fraud | judge which has the correct data |
 | 7. | example for demonstration | Provide  parachain oracle pallet integrate example and our chain deploy example|
 
 ## Future Plans
 
-After the `Subscript` presentation , we may make our effort to bring more  tool for contract development.
+If basic functions have been completed, `Ares` will provide decentralized pallet, including:
 
-A simulated contract sandbox similar to ganache is needed to debug and test contract.
-
-We may add more intergated tool and IDE packge for contract developer.
+* Multiple data source weight calculation
+* Random aggregators using VRF 
+* Proof of fraud verify based on BFT voting
+* Reputation council slash
+* Aggregator staking and Validator incentive
+* Authority management of aggregator submitted data
 
 ## Additional Information
 
