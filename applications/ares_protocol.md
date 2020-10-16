@@ -6,9 +6,9 @@
 
 ## Project Overview :page_facing_up:
 
-Ares is a predictive machine project based on Substrate, with the objective of providing safe and credible under chain real data use a decentralized approach for smart contracts, parachain or other projects in the ecosystem of the Polkadot.
+Ares is a predictive machine project based on Substrate, with the trustless and verifiable under chain real data use a decentralized approach for smart contracts, parachain or other projects in the ecosystem of the Polkadot.
 
-It is a decentralized oracle network that consists of Ares oracle pallet for parachain and validator, aggregator, reputation council pallet for our chain.
+It is a decentralized oracle network that consists of oracle pallet for parachain and validator, aggregator, reputation council pallet for Ares chain.
 
 ### Overview
 
@@ -45,13 +45,14 @@ If basic functions have been completed, `Ares` will provide decentralized pallet
 
 ### Ecosystem Fit
 
-Although Off-chain worker can do part of the oracle job, However, it can't guarantee the authenticity and reliability of the data, We can provide randomness and correctness of data sources through multi-party data aggregation and provides anti-attack and auditing of data sources
+Although the Off-chain worker can do part of the oracle job, However it can't guarantee the authenticity and reliability of the data, Ares can provide randomness and correctness of data sources through multi-party data aggregation and anti-attack and auditing of data sources
 
 ## Team :busts_in_silhouette:
 
 ### Team members
 
-* Keric: 7+ years development experience, proficient in public chain and cross chain development, proficient in using go and rust, p2p network expert.
+* Keric: 8+ years development experience, proficient in public chain and cross chain development, proficient in using go and rust, p2p network expert.
+* Eric: 20 years of experience in protocol stack formulation and development, research work related to big data and blockchain, and robot quantification experience.
 * Daniel: 11 years of work experience in IoT software development and management, familiar with contract and DAPP development.
 * Scott: More than 7 years of software development experience, proficient in /Java/Golang/node, etc. engaged in blockchain research and development, familiar with eos/eth.
 * Andy Ray: 10 years of Internet entrepreneurship experience, 5 years of blockchain industry experience, proficient in the secondary market, economic model design.
@@ -59,7 +60,7 @@ Although Off-chain worker can do part of the oracle job, However, it can't guara
 
 ### Team's experience
 
-We implemented the POW + DPOS consensus integrated with ethereum, used tendermint to provide finalize in blockchain system with golang. Recently, we implemented a rust pos blockchain, it  uses vrf select validators and libp2p network. We have enough experience to solve the centralization problem of Oracle.                                                                                                                                                                                                                                           
+We implemented the POW + DPOS consensus integrated with ethereum, used tendermint to provide finality in blockchain system with golang. Recently, we implemented a rust pos blockchain, it  uses vrf select validators and libp2p network. We have enough experience to solve the centralization problem of Oracle.                                                                                                                                                                                                                                           
 ### Team Code Repos
 * https://github.com/aresprotocols/ares
 
@@ -103,4 +104,4 @@ We may add more intergated tool and IDE packge for contract developer.
 
 ## Additional Information
 
-We expect any developer who is interested in `ares protocol` join us and build efficient framework.
+We expect any developer who is interested in `Ares protocol` join us and build an efficient framework.
