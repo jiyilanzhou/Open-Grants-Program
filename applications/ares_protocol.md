@@ -61,7 +61,7 @@ We only provide **milestone1**  here for centralized oracle implementation. Full
 ### Overview
 * **Total Estimated Duration:** 2 month
 * **Full-time equivalent (FTE):**  3
-* **Total Costs:** 3 btc
+* **Total Costs:** 2.5 btc
 
 ### Milestone 1  — Implement ares low pallet
 * **Estimated Duration:** 1 month
@@ -73,11 +73,13 @@ In this milestone, We will implement ares oracle proof-of-concept, A oracle pall
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
 | 1. | oracle pallet | requested data, generated events, and callbacks to data |
-| 2. | Testing | This milestone will have unit-test for pallet impemented, simulated all functions. Integration test will be delivered in next milestone. |
-| 3. | example for demonstration | Provide  parachain oracle pallet integrate example|
-| 3. | Documentation | We will provide parachain integrate oracle pallet documentation and  basic code example that show how developers use the pallet  |
+| 2. | scanner | scanner parachain oracle request via off-chain worker, parse the specific request data |
+| 3. | processor | data warehouse returns the correct request data use off-chain worker | 
+| 4. | Testing | This milestone will have unit-test for pallet impemented, simulated all functions. Integration test will be delivered in next milestone. |
+| 5. | example for demonstration | Provide  parachain oracle pallet integrate example|
+| 6. | Documentation | We will provide parachain integrate oracle pallet documentation and  basic code example that show how developers use the pallet  |
 
-### Milestone 1  — Implement ares low pallet
+### Milestone 2  — Implement ares chain
 * **Estimated Duration:** 1 month
 * **FTE:**  3
 * **Costs:** 2 btc
@@ -88,7 +90,7 @@ In this milestone, We will use off-chain worker scanner parachain rpc method, ob
 | ------------- | ------------- | ------------- |
 | 1. | Testing | This milestone will have unit-test for all the following pallet impemented. We will mock most of the pallet to simulate host functions. Integration test will be delivered in next milestone. |
 | 2. | Documentation | We will provide parachain integrate oracle pallet documentation and  basic code example that show how developers use the pallet, our chain deploy  |
-| 3. | scanner | scanner parachain oracle request via off-chain worker, parse the specific request data and send to aggregator, scanner parachain aggregator extrinsic, record extrinsic and receipt results |
+| 3. | scanner | scanner parachain aggregator extrinsic, record extrinsic and receipt results |
 | 4. | processor | data warehouse returns the correct request data use off-chain worker, will be used by aggregator,council,validator to validate the data | 
 | 5. | aggregator | Commit the data to a parallel chain and put extrinsic receipt results to this chain |
 | 6. | validator | validator aggregator block and submit fraud proof  |
