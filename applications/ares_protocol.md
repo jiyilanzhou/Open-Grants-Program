@@ -12,10 +12,10 @@ It is a decentralized oracle network that consists of oracle pallet for parachai
 
 ### Overview
 
-**Ares** consists of parachain plug-in, validator, aggregator, reputation council, proof of fraud. If parachain use our services, it needs to integrate our oracle pallet, The result of the request passed to the caller through a callback. We scan the parachain events caller about the pallet in our chain, use rpc or websocket request via off-chain worker, Aggregators randomly selected through VRF, which aggregates data from multiple sources. and submitted data to the parachain via extrinsic, packing parachain extrinsic and receipts via off-chain worker onto our chain. 
+**Ares** consists of parachain plug-in, validator, aggregator, reputation council, proof of fraud. If parachain use our services, it needs to integrate our oracle pallet, The result of the request passed to the caller through a callback. We scan the parachain events caller about the pallet in our chain, use rpc or websocket request via off-chain worker, Aggregators randomly selected through VRF, which aggregates data from multiple sources. and submitted data to the parachain via extrinsic. Aggregators packing parachain extrinsic and receipts  in ares chain via off-chain worker. 
 
-Aggregator needs to pledge certain assets, Every time the aggregator submits a correct data, its reputation value will grow. The reputation value and pledge will be weighted, from which we choose the members of council. council can only approve and reject data submitted by validator. 
-The default is to approve, validator nodes can verify, if validator found the data is incorrect, submit proof of fraud to council. if council check up, ther it will reward validator and slash aggregator, its reputation will be degraded.
+Aggregator needs to pledge certain assets, Every time the aggregator submits a correct data, its reputation value will grow. The reputation value and pledge will be weighted, from which we choose the members of council. council can only approve and reject proof of fraud submitted by validator. 
+Default is to approve, the council does not need to work on every block, only needs to deal with disputes when validator fraud proof arise. Validator nodes can verify, if validator found the data is incorrect, submit proof of fraud to council. if council check up, ther it will reward validator and slash aggregator, its reputation will be degraded.
 
 The functions of aggregator committees are similar to Babe, and reputation council are likely Grandpa which finality the correctness of the data. Most nodes can become member of aggregators committees. It only takes few tokens to staking. The validator who submit proof of fraud need pay a small fee, it protects against DOS attacks.  
 
@@ -30,7 +30,7 @@ The functions of aggregator committees are similar to Babe, and reputation counc
 * Aggregator scans the extrinsic in the parachain, use off-chain worker requests the data, and submits result extrinsic to parachain.
 * Aggregator packing parachain extrinsic and receipts on ares chain.
 * Validator validate data and submit proof of fraud.
-* Reputation Council reward and slash according to proof of fraud.
+* Council reward and slash according to proof of fraud.
 * Aggregator, Validator, Council use off-chain worker getting external data
 
 ### Ecosystem Fit
