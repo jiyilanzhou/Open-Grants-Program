@@ -2,7 +2,7 @@
 
 * **Project:** `Ares`
 * **Proposer:** [jiyilanzhou](https://github.com/jiyilanzhou)
-* **Payment Address:**  bc1qzv5ljrt0sngjjnn25s4jzsu7qtts5d74cq8tz5
+* **Payment Address:**  3EDZ47i4ro1cgGqjXsyduuYyLrUesCgekw
 
 ## Project Overview :page_facing_up:
 
