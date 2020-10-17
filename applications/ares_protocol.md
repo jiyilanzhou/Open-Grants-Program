@@ -56,15 +56,13 @@ We implemented the POW + DPOS consensus integrated with ethereum, used tendermin
 
 ## Development Roadmap :nut_and_bolt:
 
-We only provide **milestone1**  here for centralized oracle implementation. Full milestones are list in the [Project Details](#Project Details)
-
 ### Overview
-* **Total Estimated Duration:** 2 month
+* **Total Estimated Duration:** 8 weeks
 * **Full-time equivalent (FTE):**  3
 * **Total Costs:** 2.5 btc
 
 ### Milestone 1  — Implement ares low pallet
-* **Estimated Duration:** 1 month
+* **Estimated Duration:** 3 weeks
 * **FTE:**  3
 * **Costs:** 0.5 btc
 
@@ -75,12 +73,12 @@ In this milestone, We will implement ares oracle proof-of-concept, A oracle pall
 | 1. | oracle pallet | requested data, generated events, and callbacks to data |
 | 2. | scanner | scanner parachain oracle request via off-chain worker, parse the specific request data |
 | 3. | processor | data warehouse returns the correct request data use off-chain worker | 
-| 4. | Testing | This milestone will have unit-test for pallet impemented, simulated all functions. Integration test will be delivered in next milestone. |
+| 4. | Testing | This milestone will have unit-test for pallet impemented, simulated all functions. |
 | 5. | example for demonstration | Provide  parachain oracle pallet integrate example|
 | 6. | Documentation | We will provide parachain integrate oracle pallet documentation and  basic code example that show how developers use the pallet  |
 
 ### Milestone 2  — Implement ares chain
-* **Estimated Duration:** 1 month
+* **Estimated Duration:** 5 weeks
 * **FTE:**  3
 * **Costs:** 2 btc
 
@@ -94,8 +92,8 @@ In this milestone, We will use off-chain worker scanner parachain rpc method, ob
 | 4. | processor | data warehouse returns the correct request data use off-chain worker, will be used by aggregator,council,validator to validate the data | 
 | 5. | aggregator | Commit the data to a parallel chain and put extrinsic receipt results to this chain |
 | 6. | validator | validator aggregator block and submit fraud proof  |
-| 7. | council | judge which has the correct data |
-| 8. | Proof of fraud | judge which has the correct data |
+| 7. | council | judge which has the correct data use libp2p send vote network message |
+| 8. | Proof of fraud | record block extrinsic contrain incorrect oracle data, and give correct data |
 | 9. | example for demonstration | Provide  parachain oracle pallet integrate example and our chain deploy example|
 
 
